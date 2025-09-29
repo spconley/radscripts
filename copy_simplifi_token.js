@@ -6,7 +6,7 @@
 // @author       Redacted
 // @match        https://simplifi.quicken.com/*
 // @grant        GM_setClipboard
-// @downloadURL  https://gist.githubusercontent.com/spconley/df05ad2607ef803ee1021cfe2f81cfb1/raw/3839da51b3716aa849f800ce082adacb0a486663/copy_simplifi_token.js
+// @downloadURL  https://raw.githubusercontent.com/spconley/radscripts/refs/heads/main/copy_simplifi_token.js
 // ==/UserScript==
 
 (function() {
