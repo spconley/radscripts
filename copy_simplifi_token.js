@@ -6,14 +6,34 @@
 // @author       Redacted
 // @match        https://simplifi.quicken.com/*
 // @grant        GM_setClipboard
+// @grant        GM_addStyle
 // @downloadURL  https://raw.githubusercontent.com/spconley/radscripts/refs/heads/main/copy_simplifi_token.js
 // ==/UserScript==
 
 (function() {
     'use strict';
 
+    GM_addStyle ( `
+        #copyTokenBtn {
+            opacity: 1; /* Initially visible */
+            animation: hideElement 0.5s forwards; /* Animation duration for hiding */
+            animation-delay: 5s; /* Delay before the animation starts */
+        }
+
+        @keyframes hideElement {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                visibility: hidden; /* Removes the element from layout after fading */
+            }
+        }
+    ` );
+
     // Create the button
     const btn = document.createElement("button");
+    btn.id = "copyTokenBtn";
     btn.innerText = "Copy Auth Token";
     btn.style.position = "fixed";
     btn.style.top = "10px";
