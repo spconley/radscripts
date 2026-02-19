@@ -2,7 +2,7 @@
 // @name         Copy Quicken Simplifi Token
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  Copy localStorage token value to clipboard
+// @description  Copy sessionStorage token value to clipboard
 // @author       Redacted
 // @match        https://simplifi.quicken.com/*
 // @grant        GM_setClipboard
@@ -77,7 +77,7 @@
 
     // Add click event
     btn.addEventListener("click", () => {
-        const token = JSON.parse(localStorage.getItem("authSession")).accessToken;
+        const token = JSON.parse(sessionStorage.getItem("auth_session")).accessToken;
         if (token) {
             // Use Tampermonkey's clipboard API if available
             if (typeof GM_setClipboard !== "undefined") {
@@ -90,7 +90,7 @@
             }
             alert("Auth token copied to clipboard!");
         } else {
-            alert("No authSession key found in localStorage.");
+            alert("No auth_session key found in sessionStorage.");
         }
     });
 
@@ -116,7 +116,7 @@
 
         // Add click event
         btnSplit.addEventListener("click", () => {
-            const token = JSON.parse(localStorage.getItem("authSession")).accessToken;
+            const token = JSON.parse(sessionStorage.getItem("auth_session")).accessToken;
             if (token) {
                 // Use Tampermonkey's clipboard API if available
                 GM_xmlhttpRequest({
@@ -140,7 +140,7 @@
                     }
                 });
             } else {
-                alert("No authSession key found in localStorage.");
+                alert("No auth_session key found in sessionStorage.");
             }
         });
 
